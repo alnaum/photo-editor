@@ -49,7 +49,7 @@ import UIKit
      */
     public var colors  : [UIColor] = []
     
-    public var photoEditorDelegate: PhotoEditorDelegate?
+    public weak var photoEditorDelegate: PhotoEditorDelegate?
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     
     // list of controls to be hidden
@@ -113,10 +113,11 @@ import UIKit
         layout.minimumLineSpacing = 0
         colorsCollectionView.collectionViewLayout = layout
         colorsCollectionViewDelegate = ColorsCollectionViewDelegate()
-        colorsCollectionViewDelegate.colorDelegate = self
+        colorsCollectionViewDelegate?.colorDelegate = self
         if !colors.isEmpty {
-            colorsCollectionViewDelegate.colors = colors
+            colorsCollectionViewDelegate?.colors = colors
         }
+        
         colorsCollectionView.delegate = colorsCollectionViewDelegate
         colorsCollectionView.dataSource = colorsCollectionViewDelegate
         

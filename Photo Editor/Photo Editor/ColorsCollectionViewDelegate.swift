@@ -10,7 +10,7 @@ import UIKit
 
 @objcMembers class ColorsCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var colorDelegate : ColorDelegate?
+    weak var colorDelegate : ColorDelegate?
     
     /**
      Array of Colors that will show while drawing or typing
@@ -34,7 +34,7 @@ import UIKit
         super.init()
     }
     
-    var stickersViewControllerDelegate : StickersViewControllerDelegate?
+    weak var stickersViewControllerDelegate : StickersViewControllerDelegate?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
